@@ -27,14 +27,14 @@ class UsersSeeder extends Seeder
         DB::table('users')->insert([
             'name' => "Joao",
             "email" => "joao@exo.com",
-            "role" => "admin",
+            "role" => "gest",
             "password" => bcrypt("12345678"),
         ]);
 
         DB::table('users')->insert([
             'name' => "Tiago",
             "email" => "tiago@exo.com",
-            "role" => "admin",
+            "role" => "gest",
             "password" => bcrypt("12345678"),
         ]);
     }

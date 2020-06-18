@@ -55,7 +55,8 @@ class UserPolicy
     public function update(User $user, $users)
     {
         //La meme chose que pour les gates, je compare l'id de l'utilisateur connecté avec l'id de l'utilisateur affiché 
-        return $user->id === $users->id;
+        //Rajout de la condition que su le role de l'utilisateur connecté est egal a admin, il a le pouvoir de voir les boutons edit et delete
+        return $user->id === $users->id || $user->role === "admin";
     }
 
     /**
@@ -68,7 +69,7 @@ class UserPolicy
     public function delete(User $user, $users)
     {
         //La meme chose que pour les gates, je compare l'id de l'utilisateur connecté avec l'id de l'utilisateur affiché 
-        return $user->id === $users->id;
+        return $user->id === $users->id || $user->role === "admin";
     }
 
     /**

@@ -16,6 +16,24 @@
 
                     You are logged in!
                 </div>
+
+                <div class="container">
+                    @foreach ($users as $user)
+                        <div class="row justify-content-between">
+                            <p>{{$user->name}}</p>
+                            {{-- J'utilise la gate pour verifier si l'utilisateur connecté est le meme que l'utilisateur affiché et comme parametre j'utilise la variable $user qui est dans le foreach --}}
+                            {{-- La meme chose pour la policy update et delete --}}
+                            
+                            @can('update', $user)
+                                <div class="row">
+                                <button type="button" class="btn btn-warning">Edit</button>
+                                <button type="button" class="btn btn-danger">Delete</button>
+                            </div>
+                            @endcan
+                            
+                        </div>
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>

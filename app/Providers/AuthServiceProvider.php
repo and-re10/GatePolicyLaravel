@@ -13,7 +13,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        // 'App\Model' => 'App\Policies\ModelPolicy',
+        'App\User' => 'App\Policies\UserPolicy',
     ];
 
     /**
@@ -25,6 +25,12 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        //Dans la gate je cherche l'utilisateur connecté($user -> elle n'est pas presente dans le CAN car c'est la variable de l'utilisateur connecté) et les utilisateurs affichés($users -> elle est presente dans le CAN et viens du foreach)
+        // Gate::define('update-user', function($user, $users){
+
+        //     //Je compare si le l'id de l'utilisateur affiché est le meme que celui de l'utilisateur connecté
+        //     return $users->id === $user->id;
+
+        // });
     }
 }
